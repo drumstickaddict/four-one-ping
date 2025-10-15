@@ -1,0 +1,20 @@
+name: Ping Anchor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger-anchor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Anchor Workflow
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          curl -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/drumstickaddict/anchor-repo/actions/workflows/anchor.yml/dispatches \
+            -d '{"ref":"main"}'
