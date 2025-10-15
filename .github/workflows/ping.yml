@@ -16,5 +16,5 @@ jobs:
           curl -X POST \
             -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/drumstickaddict/anchor-repo/actions/workflows/anchor.yml/dispatches \
+            https://api.github.com/repos/drumstickaddict/four-one-anchor/actions/workflows/anchor.yml/dispatches \
             -d '{"ref":"main"}'
